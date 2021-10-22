@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-!zlmo*m)gu#eb9(94*+hm4xrsdq4weh+=dk&9s*vaa-wo%ui0d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["192.168.0.104", "192.168.0.145"]
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 ASGI_APPLICATION = "chatapp.asgi.application"
@@ -41,9 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "chat",
     "rest_framework",
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
